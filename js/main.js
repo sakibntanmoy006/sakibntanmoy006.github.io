@@ -115,25 +115,34 @@
 		});
 	};
 
+	// Function to animate progress bars
+	var animateProgressBars = function() {
+		console.log('Animating progress bars');
+		$('.progress-bar').each(function() {
+			var bar = $(this);
+			var percentage = bar.attr('aria-valuenow');
+			console.log('Animating bar to ' + percentage + '%');
+			bar.css('width', '0%').animate({ width: percentage + '%' }, 1000);
+		});
+	};
+
+	// Waypoint to trigger progress bar animation
 	var skillsWayPoint = function() {
-		if ($('#fh5co-skills').length > 0 ) {
-			$('#fh5co-skills').waypoint( function( direction ) {
-										
+		if ($('#fh5co-features').length > 0 ) {
+			$('#fh5co-features').waypoint( function( direction ) {
 				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
-					setTimeout( pieChart , 400);					
+					console.log('Triggering progress bar animation');
+					setTimeout( animateProgressBars , 200);					
 					$(this.element).addClass('animated');
 				}
 			} , { offset: '90%' } );
 		}
-
 	};
-
 
 	// Loading page
 	var loaderPage = function() {
 		$(".fh5co-loader").fadeOut("slow");
 	};
-
 	
 	$(function(){
 		contentWayPoint();
@@ -141,7 +150,6 @@
 		loaderPage();
 		fullHeight();
 		parallax();
-		// pieChart();
 		skillsWayPoint();
 	});
 
