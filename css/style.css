@@ -323,6 +323,13 @@ a:hover {
   padding: 0 20px; /* Reduced padding */
 }
 
+@media screen and (max-width: 768px) {
+  .container {
+    width: 95% !important; /* Wider on mobile */
+    padding: 0 10px; /* Minimal padding */
+  }
+}
+
 .fh5co-heading h2 {
   font-size: 4rem; /* Bigger section headings */
   margin-bottom: 2.5rem; /* Reduced from 4rem */
@@ -545,7 +552,7 @@ a:hover {
   padding: 40px;
   background: #1a1a1a; /* Dark Card Background */
   border: none; /* No separators */
-  min-height: 320px;
+  min-height: 320px; /* Restored min-height for desktop consistency */
   display: flex;
   flex-direction: column;
   position: relative;
@@ -554,6 +561,16 @@ a:hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Subtle depth */
   filter: grayscale(100%); /* Monochrome by default */
+}
+
+@media screen and (max-width: 768px) {
+  .skill-category {
+    padding: 25px; /* Reduced padding on mobile */
+    min-height: auto; /* Allow content to dictate height */
+    width: 100% !important; /* Force stack one by one */
+    flex: 0 0 100%; /* Ensure flex item takes full width */
+    margin-bottom: 20px;
+  }
 }
 
 .skill-category:hover {
