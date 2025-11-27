@@ -1,0 +1,141 @@
+---
+layout: default
+---
+
+<div
+  class="container animate-box"
+  style="padding-top: 150px; padding-bottom: 100px"
+>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <article class="blog-post" style="position: relative">
+        <button
+          id="darkModeToggle"
+          class="dark-mode-toggle"
+          aria-label="Toggle Dark Mode"
+        >
+          <i class="icon-moon"></i>
+        </button>
+
+        <button
+          id="translateToggle"
+          class="translate-toggle"
+          aria-label="Toggle Language"
+        >
+          <i class="icon-globe"></i>
+        </button>
+
+        <header class="post-header text-center mb-5">
+          <h1 class="post-title">{{ page.title }}</h1>
+          <div class="post-meta">
+            <span class="post-date">{{ page.date | date: "%B %d, %Y" }}</span>
+            {% if page.tags %}
+            <span class="post-tags">
+              {% for tag in page.tags %}
+              <span class="tag">#{{ tag }}</span>
+              {% endfor %}
+            </span>
+            {% endif %}
+          </div>
+        </header>
+
+        {% assign content_parts = content | split: "<!-- bn -->" %}
+        <div class="post-content">
+          <div id="content-en" class="lang-content fade-in">
+            {{ content_parts[0] }}
+          </div>
+          <div
+            id="content-bn"
+            class="lang-content fade-in"
+            style="display: none"
+          >
+            {{ content_parts[1] }}
+          </div>
+        </div>
+
+        <div class="post-footer mt-5">
+          <a
+            href="{{ '/blog/' | relative_url }}"
+            class="btn btn-primary btn-outline"
+            ><i class="icon-arrow-left22"></i> Back to Blog</a
+          >
+        </div>
+      </article>
+
+      <!-- Custom Modal -->
+      <div id="customModal" class="custom-modal">
+        <div class="modal-content">
+          <p class="modal-text">Bengali version coming soon!</p>
+          <button id="modalOkBtn" class="modal-btn">OK</button>
+        </div>
+      </div>
+
+      <script>
+        const toggleBtn = document.getElementById("darkModeToggle");
+        const translateBtn = document.getElementById("translateToggle");
+        const body = document.body;
+        const icon = toggleBtn.querySelector("i");
+        const contentEn = document.getElementById("content-en");
+        const contentBn = document.getElementById("content-bn");
+        const modal = document.getElementById("customModal");
+        const modalBtn = document.getElementById("modalOkBtn");
+
+        // Check local storage for Dark Mode
+        if (localStorage.getItem("darkMode") === "enabled") {
+          body.classList.add("dark-mode");
+          icon.classList.remove("icon-moon");
+          icon.classList.add("icon-sun");
+        }
+
+        toggleBtn.addEventListener("click", () => {
+          body.classList.toggle("dark-mode");
+
+          if (body.classList.contains("dark-mode")) {
+            localStorage.setItem("darkMode", "enabled");
+            icon.classList.remove("icon-moon");
+            icon.classList.add("icon-sun");
+          } else {
+            localStorage.setItem("darkMode", "disabled");
+            icon.classList.remove("icon-sun");
+            icon.classList.add("icon-moon");
+          }
+        });
+
+        // Modal Logic
+        modalBtn.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+
+        window.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            modal.style.display = "none";
+          }
+        });
+
+        // Translate Toggle Logic
+        translateBtn.addEventListener("click", () => {
+          // Add AI Glow Animation
+          translateBtn.classList.add("ai-glow-active");
+          setTimeout(() => {
+            translateBtn.classList.remove("ai-glow-active");
+          }, 1000); // Remove after animation
+
+          // Toggle Content
+          if (contentEn.style.display === "none") {
+            contentEn.style.display = "block";
+            contentBn.style.display = "none";
+          } else {
+            // Only switch if Bengali content exists
+            if (contentBn.innerHTML.trim() !== "") {
+              contentEn.style.display = "none";
+              contentBn.style.display = "block";
+            } else {
+              // Show Custom Modal instead of Alert
+              modal.style.display = "flex";
+            }
+          }
+        });
+      </script>
+    </div>
+  </div>
+</div>
