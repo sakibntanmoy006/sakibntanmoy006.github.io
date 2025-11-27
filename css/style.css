@@ -183,6 +183,8 @@ a:hover {
 .hero-text-content {
   text-align: left;
   max-width: 600px; /* Prevent text from getting too wide */
+  position: relative;
+  z-index: 5; /* Ensure text is above waves */
 }
 
 /* Right Side */
@@ -300,6 +302,15 @@ a:hover {
 
   .fh5co-social-icons {
     justify-content: center;
+  }
+
+  /* Hide heavy animations on mobile to prevent flickering */
+  .hero-light-waves {
+    display: none;
+  }
+
+  body::before {
+    display: none;
   }
 }
 
