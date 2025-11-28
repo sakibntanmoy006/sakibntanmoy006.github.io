@@ -2,6 +2,7 @@ title: Sakib Nawar Tanmoy | Data & Code
 description: Sakib Nawar Tanmoy Portfolio - Data Analyst, Data Scientist, Software Engineer
 url: "https://sakibntanmoy006.github.io"
 markdown: kramdown
+highlighter: rouge
 plugins:
   - jekyll-feed
   - jekyll-seo-tag

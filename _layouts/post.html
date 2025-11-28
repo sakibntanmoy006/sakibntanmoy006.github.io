@@ -9,6 +9,8 @@ layout: default
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <article class="blog-post" style="position: relative">
+        <!-- Magic Overlay -->
+        <div id="magicOverlay" class="magic-overlay"></div>
         <button
           id="darkModeToggle"
           class="dark-mode-toggle"
@@ -114,26 +116,34 @@ layout: default
 
         // Translate Toggle Logic
         translateBtn.addEventListener("click", () => {
-          // Add AI Glow Animation
+          // Trigger Magic Animation
+          const magicOverlay = document.getElementById("magicOverlay");
+          magicOverlay.classList.add("active");
           translateBtn.classList.add("ai-glow-active");
-          setTimeout(() => {
-            translateBtn.classList.remove("ai-glow-active");
-          }, 1000); // Remove after animation
 
-          // Toggle Content
-          if (contentEn.style.display === "none") {
-            contentEn.style.display = "block";
-            contentBn.style.display = "none";
-          } else {
-            // Only switch if Bengali content exists
-            if (contentBn.innerHTML.trim() !== "") {
-              contentEn.style.display = "none";
-              contentBn.style.display = "block";
+          // Wait for the "sweep" to cover the screen (approx 600ms)
+          setTimeout(() => {
+            // Toggle Content
+            if (contentEn.style.display === "none") {
+              contentEn.style.display = "block";
+              contentBn.style.display = "none";
             } else {
-              // Show Custom Modal instead of Alert
-              modal.style.display = "flex";
+              // Only switch if Bengali content exists
+              if (contentBn.innerHTML.trim() !== "") {
+                contentEn.style.display = "none";
+                contentBn.style.display = "block";
+              } else {
+                // Show Custom Modal instead of Alert
+                modal.style.display = "flex";
+              }
             }
-          }
+          }, 600); // Sync with animation peak
+
+          // Cleanup after animation completes
+          setTimeout(() => {
+            magicOverlay.classList.remove("active");
+            translateBtn.classList.remove("ai-glow-active");
+          }, 1500); // Sync with animation duration
         });
       </script>
     </div>
