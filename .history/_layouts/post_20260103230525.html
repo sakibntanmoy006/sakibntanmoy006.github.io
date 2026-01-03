@@ -2,10 +2,13 @@
 layout: default
 ---
 
-<div class="container animate-box page-content-padding">
+<div
+  class="container animate-box"
+  style="padding-top: 150px; padding-bottom: 100px"
+>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <article class="blog-post pos-relative">
+      <article class="blog-post" style="position: relative">
         <!-- Magic Overlay -->
         <div id="magicOverlay" class="magic-overlay"></div>
         <button
@@ -16,7 +19,7 @@ layout: default
           <span class="icon-moon-wrapper"
             >{% include icons/moon.html size=20 %}</span
           >
-          <span class="icon-sun-wrapper d-none"
+          <span class="icon-sun-wrapper" style="display: none"
             >{% include icons/brightness-down.html size=20 %}</span
           >
         </button>
@@ -48,7 +51,11 @@ layout: default
           <div id="content-en" class="lang-content fade-in">
             {{ content_parts[0] }}
           </div>
-          <div id="content-bn" class="lang-content fade-in d-none">
+          <div
+            id="content-bn"
+            class="lang-content fade-in"
+            style="display: none"
+          >
             {{ content_parts[1] }}
           </div>
         </div>

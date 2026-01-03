@@ -2698,16 +2698,3 @@ body.dark-mode .magic-overlay {
     pointer-events: none;
   }
 }
-/* Utilities for inline style refactoring */
-.page-content-padding {
-  padding-top: 150px;
-  padding-bottom: 100px;
-}
-
-.pos-relative {
-  position: relative !important;
-}
-
-.d-none {
-  display: none !important;
-}

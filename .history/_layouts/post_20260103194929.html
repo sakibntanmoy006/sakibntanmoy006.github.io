@@ -2,10 +2,13 @@
 layout: default
 ---
 
-<div class="container animate-box page-content-padding">
+<div
+  class="container animate-box"
+  style="padding-top: 150px; padding-bottom: 100px"
+>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <article class="blog-post pos-relative">
+      <article class="blog-post" style="position: relative">
         <!-- Magic Overlay -->
         <div id="magicOverlay" class="magic-overlay"></div>
         <button
@@ -13,12 +16,7 @@ layout: default
           class="dark-mode-toggle"
           aria-label="Toggle Dark Mode"
         >
-          <span class="icon-moon-wrapper"
-            >{% include icons/moon.html size=20 %}</span
-          >
-          <span class="icon-sun-wrapper d-none"
-            >{% include icons/brightness-down.html size=20 %}</span
-          >
+          <i class="icon-moon"></i>
         </button>
 
         <button
@@ -26,7 +24,7 @@ layout: default
           class="translate-toggle"
           aria-label="Toggle Language"
         >
-          {% include icons/globe.html size=20 %}
+          <i class="icon-globe"></i>
         </button>
 
         <header class="post-header text-center mb-5">
@@ -48,7 +46,11 @@ layout: default
           <div id="content-en" class="lang-content fade-in">
             {{ content_parts[0] }}
           </div>
-          <div id="content-bn" class="lang-content fade-in d-none">
+          <div
+            id="content-bn"
+            class="lang-content fade-in"
+            style="display: none"
+          >
             {{ content_parts[1] }}
           </div>
         </div>
@@ -74,10 +76,7 @@ layout: default
         const toggleBtn = document.getElementById("darkModeToggle");
         const translateBtn = document.getElementById("translateToggle");
         const body = document.body;
-        // Icons
-        const iconMoonWrapper = toggleBtn.querySelector(".icon-moon-wrapper");
-        const iconSunWrapper = toggleBtn.querySelector(".icon-sun-wrapper");
-
+        const icon = toggleBtn.querySelector("i");
         const contentEn = document.getElementById("content-en");
         const contentBn = document.getElementById("content-bn");
         const modal = document.getElementById("customModal");
@@ -86,8 +85,8 @@ layout: default
         // Check local storage for Dark Mode
         if (localStorage.getItem("darkMode") === "enabled") {
           body.classList.add("dark-mode");
-          iconMoonWrapper.style.display = "none";
-          iconSunWrapper.style.display = "block";
+          icon.classList.remove("icon-moon");
+          icon.classList.add("icon-sun");
         }
 
         toggleBtn.addEventListener("click", () => {
@@ -95,12 +94,12 @@ layout: default
 
           if (body.classList.contains("dark-mode")) {
             localStorage.setItem("darkMode", "enabled");
-            iconMoonWrapper.style.display = "none";
-            iconSunWrapper.style.display = "block";
+            icon.classList.remove("icon-moon");
+            icon.classList.add("icon-sun");
           } else {
             localStorage.setItem("darkMode", "disabled");
-            iconMoonWrapper.style.display = "block";
-            iconSunWrapper.style.display = "none";
+            icon.classList.remove("icon-sun");
+            icon.classList.add("icon-moon");
           }
         });
 
