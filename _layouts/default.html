@@ -15,87 +15,176 @@
     />
     <meta name="author" content="Sakib Nawar Tanmoy" />
 
-    <!-- Google Fonts -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2316130f'/%3E%3Ctext x='30' y='45' font-family='Georgia,serif' font-size='38' font-weight='bold' fill='%23f6f3ec' text-anchor='middle'%3ET%3C/text%3E%3Ccircle cx='50' cy='44' r='5' fill='%23c2401f'/%3E%3C/svg%3E"
+    />
+
+    <!-- Google Fonts: Fraunces (display serif) + Inter (text) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="{{ '/css/animate.css' | relative_url }}" />
-    <!-- Icomoon Icon Fonts-->
-    <link rel="stylesheet" href="{{ '/css/icomoon.css' | relative_url }}" />
-    <!-- Bootstrap  -->
-    <link rel="stylesheet" href="{{ '/css/bootstrap.css' | relative_url }}" />
-
-    <!-- Theme style  -->
-    <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
-    <!-- Hover Icons -->
-    <link rel="stylesheet" href="{{ '/css/hover-icons.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
-    <!-- Syntax Highlighting -->
-    <link rel="stylesheet" href="{{ '/css/syntax.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
-
-    <!-- Modernizr JS -->
-    <script src="{{ '/js/modernizr-2.6.2.min.js' | relative_url }}"></script>
-    <!-- FOR IE9 below -->
-    <!--[if lt IE 9]>
-      <script src="{{ '/js/respond.min.js' | relative_url }}"></script>
-    <![endif]-->
+    <!-- Theme style -->
+    <link
+      rel="stylesheet"
+      href="{{ '/css/magazine.css' | relative_url }}?v={{ site.time | date: '%s' }}"
+    />
+    <!-- Icon hover animations -->
+    <link
+      rel="stylesheet"
+      href="{{ '/css/hover-icons.css' | relative_url }}?v={{ site.time | date: '%s' }}"
+    />
+    <!-- Syntax Highlighting (blog posts) -->
+    <link
+      rel="stylesheet"
+      href="{{ '/css/syntax.css' | relative_url }}?v={{ site.time | date: '%s' }}"
+    />
     {% seo %}
   </head>
   <body>
-    <div class="ambient-glow"></div>
-    <div class="fh5co-loader"></div>
+    <!-- MASTHEAD -->
+    <header class="masthead">
+      <div class="masthead-main">
+        <div class="wrap">
+          <a href="{{ '/' | relative_url }}" class="brand"
+            >S.N<em>.</em>Tanmoy</a
+          >
+          <nav class="nav-links" aria-label="Primary">
+            <a href="{{ '/#story' | relative_url }}">Story</a>
+            <a href="{{ '/#journey' | relative_url }}">Journey</a>
+            <a href="{{ '/#toolset' | relative_url }}">Toolset</a>
+            <a href="{{ '/#work' | relative_url }}">Work</a>
+            <a href="{{ '/blog/' | relative_url }}">Blog</a>
+            <a
+              href="https://drive.google.com/file/d/1-6sRhiMXV1NFhXN0NfzXUlkYV2yJRAwe/view?usp=sharing"
+              target="_blank"
+              rel="noopener"
+              >Resume</a
+            >
+          </nav>
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=sakib.tanmoy@gmail.com"
+            class="nav-email-btn"
+            target="_blank"
+            rel="noopener"
+            >{% include icons/gmail.html size=16 %} Email Me</a
+          >
+          <button class="nav-toggle" aria-expanded="false" aria-label="Menu">
+            Menu
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-menu" aria-label="Mobile">
+        <a href="{{ '/#story' | relative_url }}">Story</a>
+        <a href="{{ '/#journey' | relative_url }}">Journey</a>
+        <a href="{{ '/#toolset' | relative_url }}">Toolset</a>
+        <a href="{{ '/#work' | relative_url }}">Work</a>
+        <a href="{{ '/blog/' | relative_url }}">Blog</a>
+        <a
+          href="https://drive.google.com/file/d/1-6sRhiMXV1NFhXN0NfzXUlkYV2yJRAwe/view?usp=sharing"
+          target="_blank"
+          rel="noopener"
+          >Resume</a
+        >
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=sakib.tanmoy@gmail.com"
+          target="_blank"
+          rel="noopener"
+          >Email Me</a
+        >
+      </nav>
+      <div class="scroll-progress" aria-hidden="true"></div>
+    </header>
 
-    <div id="page">
-      <!-- Navigation -->
-      <!-- Navigation Removed as per request -->
+    <main>{{ content }}</main>
 
-      {{ content }}
-
-      <!-- FOOTER -->
-      <div id="fh5co-started" class="fh5co-bg-dark">
-        <div class="container">
-          <div class="row animate-box">
-            <h2 class="connect-title">Start a Conversation</h2>
-            <p class="connect-subtitle">
-              I'm excited to explore new projects and collaborations.
-            </p>
-            <p>
-              <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=sakib.nawar.tanmoy@gmail.com"
-                class="btn btn-pill btn-pill-email"
-                target="_blank"
-                rel="noopener"
-                >{% include icons/gmail.html size=20 class="mr-2" %}Email Me</a
-              >
-            </p>
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+      <div class="wrap footer-grid reveal">
+        <div class="footer-left">
+          <span class="kicker">Ready when you are</span>
+          <h2 class="footer-title">Start a <em>conversation.</em></h2>
+          <p class="footer-lede">
+            I'm excited to explore new projects and collaborations in data,
+            compliance, or code.
+          </p>
+          <div class="footer-social">
+            <a
+              href="https://github.com/sakibntanmoy006"
+              class="social-btn"
+              aria-label="GitHub"
+              target="_blank"
+              rel="noopener"
+              >{% include icons/github.html size=20 %}</a
+            >
+            <a
+              href="https://www.linkedin.com/in/snt006"
+              class="social-btn"
+              aria-label="LinkedIn"
+              target="_blank"
+              rel="noopener"
+              >{% include icons/linkedin.html size=20 %}</a
+            >
+            <a
+              href="https://www.facebook.com/sakibntanmoy"
+              class="social-btn"
+              aria-label="Facebook"
+              target="_blank"
+              rel="noopener"
+              >{% include icons/facebook.html size=20 %}</a
+            >
           </div>
         </div>
-        <div class="footer-big-name">Sakib Nawar Tanmoy</div>
+        <div class="footer-links">
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=sakib.tanmoy@gmail.com"
+            class="footer-link-row is-primary"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="flr-label"
+              >{% include icons/gmail.html size=20 %} Email Me</span
+            >
+            <span class="flr-meta">sakib.tanmoy@gmail.com</span>
+            <span class="flr-arrow">→</span>
+          </a>
+          <a
+            href="https://drive.google.com/file/d/1-6sRhiMXV1NFhXN0NfzXUlkYV2yJRAwe/view?usp=sharing"
+            class="footer-link-row"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="flr-label">Download Resume</span>
+            <span class="flr-meta">PDF · Google Drive</span>
+            <span class="flr-arrow">→</span>
+          </a>
+          <a href="{{ '/blog/' | relative_url }}" class="footer-link-row">
+            <span class="flr-label">Read the Blog</span>
+            <span class="flr-meta">Articles &amp; tutorials</span>
+            <span class="flr-arrow">→</span>
+          </a>
+        </div>
       </div>
 
-      <div class="gototop js-top">
-        <a href="#" class="js-gotop"
-          >{% include icons/arrow-narrow-up-dashed.html size=24 color="#ffffff"
-          %}</a
-        >
-      </div>
+      <div class="footer-big-name" aria-hidden="true">Sakib&nbsp;N&nbsp;Tanmoy</div>
 
-      <!-- jQuery -->
-      <script src="{{ '/js/jquery.min.js' | relative_url }}"></script>
-      <!-- jQuery Easing -->
-      <script src="{{ '/js/jquery.easing.1.3.js' | relative_url }}"></script>
-      <!-- Bootstrap -->
-      <script src="{{ '/js/bootstrap.min.js' | relative_url }}"></script>
-      <!-- Waypoints -->
-      <script src="{{ '/js/jquery.waypoints.min.js' | relative_url }}"></script>
-      <!-- Stellar Parallax -->
-      <script src="{{ '/js/jquery.stellar.min.js' | relative_url }}"></script>
-      <!-- Main -->
-      <script src="{{ '/js/main.js' | relative_url }}"></script>
-    </div>
+      <div class="colophon">
+        <div class="wrap">
+          <span>Sakib Nawar Tanmoy · Dhaka, Bangladesh</span>
+          <span>Data Scientist · Compliance Specialist · Software Engineer</span>
+          <span class="barcode-block" aria-hidden="true">
+            <span class="barcode"></span>
+            <span class="barcode-label">SNT-006 · EST. 2021</span>
+          </span>
+          <a href="#top" class="to-top">Back to top ↑</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="{{ '/js/magazine.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
   </body>
 </html>

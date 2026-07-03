@@ -2,55 +2,36 @@
 layout: default
 ---
 
-<div
-  class="container animate-box"
-  style="padding-top: 150px; padding-bottom: 100px"
->
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-      <h2
-        class="blog-section-title"
-        style="font-size: 4rem; margin-bottom: 40px"
-      >
-        All Articles
-      </h2>
-      <p style="font-size: 1.2rem; color: #666">
-        Browse our complete collection of thoughts and tutorials.
-      </p>
-    </div>
+<section class="page-hero">
+  <div class="wrap reveal">
+    <a href="{{ '/blog/' | relative_url }}" class="back-link"
+      >← Back to Latest</a
+    >
+    <span class="kicker" style="display: block; margin-bottom: 14px"
+      >The Full Index</span
+    >
+    <h1>All <em>Articles</em></h1>
+    <p class="page-sub">
+      Browse the complete collection of thoughts and tutorials.
+    </p>
   </div>
+</section>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="blog-archive-list">
-        {% for post in site.posts %}
-        <div
-          class="blog-archive-item animate-box"
-          data-animate-effect="fadeInUp"
-        >
-          <span class="archive-date">{{ post.date | date: "%B %d, %Y" }}</span>
-          <h3 class="archive-title">
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          </h3>
-          <p class="archive-excerpt">
-            {{ post.excerpt | strip_html | truncatewords: 30 }}
+<section class="page-body">
+  <div class="wrap">
+    <div class="article-list">
+      {% for post in site.posts %}
+      <a href="{{ post.url | relative_url }}" class="article-row reveal">
+        <span class="article-no">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+        <div>
+          <h3>{{ post.title }}</h3>
+          <p class="article-excerpt">
+            {{ post.excerpt | strip_html | truncatewords: 28 }}
           </p>
-          <a href="{{ post.url | relative_url }}" class="archive-read-more"
-            >Read Article <i class="icon-arrow-right22"></i
-          ></a>
         </div>
-        {% endfor %}
-      </div>
+        <span class="article-date">{{ post.date | date: "%b %d, %Y" }}</span>
+      </a>
+      {% endfor %}
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-md-12 text-center mt-5">
-      <a
-        href="{{ '/blog/' | relative_url }}"
-        class="btn btn-primary btn-outline"
-        ><i class="icon-arrow-left22"></i> Back to Latest</a
-      >
-    </div>
-  </div>
-</div>
+</section>

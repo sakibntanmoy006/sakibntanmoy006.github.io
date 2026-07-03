@@ -20,7 +20,19 @@
       "Bash(curl -s http://127.0.0.1:9333/json/version)",
       "Bash(python3 *)",
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --remote-debugging-port=9333 --remote-allow-origins=* --hide-scrollbars --window-size=1440,1000 about:blank)",
-      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --remote-debugging-port=9333 \"--remote-allow-origins=*\" --hide-scrollbars --window-size=1440,1000 about:blank)"
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --remote-debugging-port=9333 \"--remote-allow-origins=*\" --hide-scrollbars --window-size=1440,1000 about:blank)",
+      "Bash(python3 -m http.server 4300)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4300/)",
+      "mcp__chrome-devtools__new_page",
+      "mcp__chrome-devtools__resize_page",
+      "mcp__chrome-devtools__take_screenshot",
+      "mcp__chrome-devtools__evaluate_script",
+      "mcp__chrome-devtools__navigate_page",
+      "Bash(pkill -f \"http.server 4300\")",
+      "mcp__chrome-devtools__list_console_messages",
+      "mcp__chrome-devtools__take_snapshot",
+      "mcp__chrome-devtools__hover",
+      "mcp__chrome-devtools__click"
     ]
   }
 }

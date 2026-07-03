@@ -2,80 +2,42 @@
 layout: default
 ---
 
-<div class="container animate-box page-content-padding pos-relative">
-  <a href="{{ '/' | relative_url }}" class="back-home-link">
-    {% include icons/arrow-big-right-dash.html size=20 class="rotate-180 mr-2"
-    %} Go Back To Home
-  </a>
-  <div class="row">
-    <div class="col-md-12 text-center fh5co-heading">
-      <h2 class="blog-section-title">LATEST ARTICLES</h2>
-    </div>
+<section class="page-hero">
+  <div class="wrap reveal">
+    <a href="{{ '/' | relative_url }}" class="back-link">← Back to Home</a>
+    <span class="kicker" style="display: block; margin-bottom: 14px"
+      >The Journal</span
+    >
+    <h1>Latest <em>Articles</em></h1>
+    <p class="page-sub">
+      Thoughts and tutorials on data, code, and everything in between.
+    </p>
   </div>
-  <div class="row blog-grid-row">
-    {% assign latest_post_date = site.posts[0].date | date: "%s" | plus: 0 %} {%
-    assign global_seed = latest_post_date | divided_by: 60 %} {% for post in
-    site.posts limit:3 %} {% comment %} Use global_seed + loop index to
-    guarantee distinctness while maintaining randomness. The starting point
-    changes when a new post is added (global_seed changes). The offset
-    (forloop.index0) ensures neighbors are distinct. We multiply the index by a
-    prime number (e.g. 3, 5) to skip colors/patterns for more variance. {%
-    endcomment %} {% assign color_idx = global_seed | plus: forloop.index0 |
-    modulo: 12 %} {% if color_idx == 0 %}{% assign bg_class =
-    "bg-vibrant-yellow" %} {% elsif color_idx == 1 %}{% assign bg_class =
-    "bg-vibrant-purple" %} {% elsif color_idx == 2 %}{% assign bg_class =
-    "bg-vibrant-teal" %} {% elsif color_idx == 3 %}{% assign bg_class =
-    "bg-vibrant-orange" %} {% elsif color_idx == 4 %}{% assign bg_class =
-    "bg-vibrant-pink" %} {% elsif color_idx == 5 %}{% assign bg_class =
-    "bg-vibrant-lime" %} {% elsif color_idx == 6 %}{% assign bg_class =
-    "bg-vibrant-blue" %} {% elsif color_idx == 7 %}{% assign bg_class =
-    "bg-vibrant-red" %} {% elsif color_idx == 8 %}{% assign bg_class =
-    "bg-vibrant-cyan" %} {% elsif color_idx == 9 %}{% assign bg_class =
-    "bg-vibrant-indigo" %} {% elsif color_idx == 10 %}{% assign bg_class =
-    "bg-vibrant-rose" %} {% else %}{% assign bg_class = "bg-vibrant-amber" %}{%
-    endif %} {% assign pattern_idx = global_seed | plus: forloop.index0 | times:
-    3 | modulo: 7 %} {% if pattern_idx == 0 %}{% assign pattern_class =
-    "pattern-dots" %} {% elsif pattern_idx == 1 %}{% assign pattern_class =
-    "pattern-grid" %} {% elsif pattern_idx == 2 %}{% assign pattern_class =
-    "pattern-zigzag" %} {% elsif pattern_idx == 3 %}{% assign pattern_class =
-    "pattern-waves" %} {% elsif pattern_idx == 4 %}{% assign pattern_class =
-    "pattern-triangles" %} {% elsif pattern_idx == 5 %}{% assign pattern_class =
-    "pattern-crosses" %} {% else %}{% assign pattern_class = "pattern-stripes"
-    %}{% endif %} {% assign anim_idx = global_seed | plus: forloop.index0 |
-    times: 2 | modulo: 8 %} {% if anim_idx == 0 %}{% assign anim_class =
-    "anim-pulse" %} {% elsif anim_idx == 1 %}{% assign anim_class = "anim-pan"
-    %} {% elsif anim_idx == 2 %}{% assign anim_class = "anim-slide" %} {% elsif
-    anim_idx == 3 %}{% assign anim_class = "anim-float" %} {% elsif anim_idx ==
-    4 %}{% assign anim_class = "anim-rotate" %} {% elsif anim_idx == 5 %}{%
-    assign anim_class = "anim-swing" %} {% elsif anim_idx == 6 %}{% assign
-    anim_class = "anim-bounce" %} {% else %}{% assign anim_class = "anim-zoom"
-    %}{% endif %}
+</section>
 
-    <div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeIn">
-      <div class="blog-card-vibrant {{ bg_class }}">
-        <a href="{{ post.url | relative_url }}" class="blog-card-link">
-          <div class="blog-card-content">
-            <h3 class="blog-title-vibrant">{{ post.title }}</h3>
-            <p class="blog-excerpt-vibrant">
-              {{ post.excerpt | strip_html | truncatewords: 20 }}
-            </p>
-            <span class="read-more-vibrant"
-              >READ MORE {% include icons/arrow-big-right-dash.html size=18
-              class="ml-2" %}</span
-            >
-          </div>
-        </a>
-        <div class="card-bg-pattern {{ pattern_class }} {{ anim_class }}"></div>
-      </div>
+<section class="page-body">
+  <div class="wrap">
+    <div class="article-list">
+      {% for post in site.posts limit:6 %}
+      <a href="{{ post.url | relative_url }}" class="article-row reveal">
+        <span class="article-no">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+        <div>
+          <h3>{{ post.title }}</h3>
+          <p class="article-excerpt">
+            {{ post.excerpt | strip_html | truncatewords: 24 }}
+          </p>
+        </div>
+        <span class="article-date">{{ post.date | date: "%b %d, %Y" }}</span>
+      </a>
+      {% endfor %}
     </div>
-    {% endfor %}
-  </div>
-
-  <div class="row">
-    <div class="col-md-12 text-center mt-5">
-      <a href="{{ '/blog/archive.html' | relative_url }}" class="btn-view-all"
-        >VIEW ALL ARTICLES</a
+    <div class="section-foot reveal">
+      <a
+        href="{{ '/blog/archive.html' | relative_url }}"
+        class="btn-editorial"
+        >View All Articles {% include icons/arrow-big-right-dash.html size=16
+        %}</a
       >
     </div>
   </div>
-</div>
+</section>
