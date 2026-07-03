@@ -15,6 +15,22 @@
     />
     <meta name="author" content="Sakib Nawar Tanmoy" />
 
+    <!-- Apply saved theme before first paint to avoid a flash -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("darkMode");
+          if (
+            saved === "enabled" ||
+            (saved === null &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches)
+          ) {
+            document.documentElement.classList.add("dark-mode");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <link
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2316130f'/%3E%3Ctext x='30' y='45' font-family='Georgia,serif' font-size='38' font-weight='bold' fill='%23f6f3ec' text-anchor='middle'%3ET%3C/text%3E%3Ccircle cx='50' cy='44' r='5' fill='%23c2401f'/%3E%3C/svg%3E"
@@ -66,16 +82,30 @@
               >Resume</a
             >
           </nav>
-          <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=sakib.tanmoy@gmail.com"
-            class="nav-email-btn"
-            target="_blank"
-            rel="noopener"
-            >{% include icons/gmail.html size=16 %} Email Me</a
-          >
-          <button class="nav-toggle" aria-expanded="false" aria-label="Menu">
-            Menu
-          </button>
+          <div class="masthead-actions">
+            <button
+              class="theme-toggle"
+              aria-label="Toggle dark mode"
+              title="Toggle dark / light mode"
+            >
+              <span class="icon-moon"
+                >{% include icons/moon.html size=17 %}</span
+              >
+              <span class="icon-sun"
+                >{% include icons/brightness-down.html size=18 %}</span
+              >
+            </button>
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=sakib.tanmoy@gmail.com"
+              class="nav-email-btn"
+              target="_blank"
+              rel="noopener"
+              >{% include icons/gmail.html size=16 %} Email Me</a
+            >
+            <button class="nav-toggle" aria-expanded="false" aria-label="Menu">
+              Menu
+            </button>
+          </div>
         </div>
       </div>
       <nav class="mobile-menu" aria-label="Mobile">

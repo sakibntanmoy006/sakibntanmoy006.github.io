@@ -52,22 +52,6 @@
 }
 
 /* ArrowNarrowUpDashed Icon Animation */
-@keyframes arrowUpBounce {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.hover-icon-arrow-narrow-up-dashed:hover .arrow-group {
-  animation: arrowUpBounce 0.5s ease-in-out;
-}
-
 /* Facebook Icon Animation */
 @keyframes fbScale {
   0% {

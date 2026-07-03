@@ -1,70 +1,39 @@
-# Sakib Nawar Tanmoy - Portfolio & Blog
+# Sakib Nawar Tanmoy — Portfolio & Blog
 
-Welcome to my personal portfolio website and blog! This site showcases my projects, skills, and thoughts on Data Science, Software Engineering, and Technology.
+Personal portfolio and blog, designed as a clean editorial "magazine" — showcasing my work across data science, enterprise compliance (ISMS / AIMS), and software engineering.
 
-## 🚀 Features
+**Live site:** [sakibntanmoy006.github.io](https://sakibntanmoy006.github.io)
 
-### 🎨 Design & UI
+## Design
 
-- **Modern Aesthetic**: Clean, responsive design with a focus on typography and readability.
-- **Dark Mode**: Fully supported dark mode with persistent user preference (saved in local storage).
-- **Glassmorphism**: Premium Apple-style glass effects on modals and overlays.
-- **Animations**: Smooth transitions, hover effects, and entrance animations.
+- Editorial magazine layout: Fraunces display serif, Inter text, JetBrains Mono for data/metadata accents
+- Dark & light mode with a persistent toggle
+- Subtle interactive animations: typed terminal roles, stat counters, scroll reveals, magnetic buttons, 3D card tilt, digit-scramble section numbers, eased smooth scrolling
+- Blog with English/Bengali toggle per post and syntax-highlighted code
 
-### 📝 Blog System
+## Structure
 
-- **Grid Layout**: Beautiful card-based layout for blog posts with randomized patterns and colors.
-- **Bilingual Support (English & Bengali)**:
-  - Toggle between languages instantly.
-  - **AI-Style Glow Animation** on the translate button.
-  - **Custom Glassmorphism Popup** for missing translations.
-- **Typography**: Optimized for reading with a balanced editorial scale.
-- **Archive**: A clean, vertical list of all blog posts.
+```
+_config.yml        Jekyll configuration
+_layouts/          default (shell + masthead + footer), blog, archive, post
+_includes/icons/   inline SVG icons
+index.html         homepage (all portfolio sections)
+blog/              blog index, archive, posts (blog/_posts/*.md), post images
+css/               magazine.css (theme), hover-icons.css, syntax.css
+js/magazine.js     all interactions (vanilla JS, no frameworks)
+images/, logos/    photos, project shots, company logos
+domains/           custom-domain registration record
+```
 
-## 🛠 Tech Stack
+## Development
 
-- **Static Site Generator**: [Jekyll](https://jekyllrb.com/)
-- **Styling**: Custom CSS3 (Variables, Flexbox, Grid)
-- **Scripting**: Vanilla JavaScript
-- **Hosting**: GitHub Pages
+```bash
+bundle install
+bundle exec jekyll serve   # http://localhost:4000
+```
 
-## 💻 Local Development
+To add a blog post, see `blog/HOW_TO_ADD_POST.md`.
 
-To run this site locally on your machine:
+## Stack
 
-1.  **Prerequisites**: Ensure you have [Ruby](https://www.ruby-lang.org/en/downloads/) and [Bundler](https://bundler.io/) installed.
-
-2.  **Install Dependencies**:
-
-    ```bash
-    bundle install
-    ```
-
-3.  **Run the Server**:
-
-    ```bash
-    bundle exec jekyll serve
-    ```
-
-4.  **View the Site**:
-    Open [http://localhost:4000](http://localhost:4000) in your browser.
-
-## ✍️ Adding New Blog Posts
-
-I have created a detailed guide on how to add new bilingual blog posts.
-
-👉 **[Read the Guide: blog/HOW_TO_ADD_POST.md](blog/HOW_TO_ADD_POST.md)**
-
-## 📂 Project Structure
-
-- `_layouts/`: HTML templates for pages and posts.
-- `_posts/`: Markdown files for blog articles.
-- `css/`: Main stylesheet (`style.css`).
-- `images/`:
-  - `blog/`: Images for blog posts.
-  - `portfolio/`: Images for project showcase.
-- `_config.yml`: Jekyll configuration settings.
-
----
-
-© 2025 Sakib Nawar Tanmoy. All rights reserved.
+Jekyll · GitHub Pages · vanilla CSS/JS — no frameworks.

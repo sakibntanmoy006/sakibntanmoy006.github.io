@@ -8,6 +8,17 @@
   var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)")
     .matches;
 
+  /* Dark / light mode toggle (theme is pre-applied in <head> to avoid flash) */
+  var themeToggle = document.querySelector(".theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+      var dark = document.documentElement.classList.toggle("dark-mode");
+      try {
+        localStorage.setItem("darkMode", dark ? "enabled" : "disabled");
+      } catch (e) {}
+    });
+  }
+
   /* Mobile menu toggle */
   var toggle = document.querySelector(".nav-toggle");
   var menu = document.querySelector(".mobile-menu");
@@ -316,23 +327,5 @@
         host.style.setProperty("--rx", "0deg");
       });
     });
-  }
-
-  /* Masthead date stamp */
-  var dateEl = document.querySelector("[data-today]");
-  if (dateEl) {
-    var now = new Date();
-    var months = [
-      "January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December",
-    ];
-    dateEl.textContent =
-      months[now.getMonth()] + " " + now.getDate() + ", " + now.getFullYear();
-  }
-
-  /* Footer year */
-  var yearEl = document.querySelector("[data-year]");
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
   }
 })();

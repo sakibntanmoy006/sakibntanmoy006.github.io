@@ -8,18 +8,6 @@ layout: default
 
   <div class="post-tools">
     <button
-      id="darkModeToggle"
-      class="tool-btn"
-      aria-label="Toggle Dark Mode"
-    >
-      <span class="icon-moon-wrapper"
-        >{% include icons/moon.html size=18 %}</span
-      >
-      <span class="icon-sun-wrapper d-none"
-        >{% include icons/brightness-down.html size=18 %}</span
-      >
-    </button>
-    <button
       id="translateToggle"
       class="tool-btn"
       aria-label="Toggle Language"
@@ -69,38 +57,12 @@ layout: default
   </div>
 
   <script>
-    const toggleBtn = document.getElementById("darkModeToggle");
     const translateBtn = document.getElementById("translateToggle");
-    const body = document.body;
-    // Icons
-    const iconMoonWrapper = toggleBtn.querySelector(".icon-moon-wrapper");
-    const iconSunWrapper = toggleBtn.querySelector(".icon-sun-wrapper");
 
     const contentEn = document.getElementById("content-en");
     const contentBn = document.getElementById("content-bn");
     const modal = document.getElementById("customModal");
     const modalBtn = document.getElementById("modalOkBtn");
-
-    // Check local storage for Dark Mode
-    if (localStorage.getItem("darkMode") === "enabled") {
-      body.classList.add("dark-mode");
-      iconMoonWrapper.style.display = "none";
-      iconSunWrapper.style.display = "block";
-    }
-
-    toggleBtn.addEventListener("click", () => {
-      body.classList.toggle("dark-mode");
-
-      if (body.classList.contains("dark-mode")) {
-        localStorage.setItem("darkMode", "enabled");
-        iconMoonWrapper.style.display = "none";
-        iconSunWrapper.style.display = "block";
-      } else {
-        localStorage.setItem("darkMode", "disabled");
-        iconMoonWrapper.style.display = "block";
-        iconSunWrapper.style.display = "none";
-      }
-    });
 
     // Modal Logic
     modalBtn.addEventListener("click", () => {
