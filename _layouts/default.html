@@ -31,11 +31,11 @@
     <link rel="stylesheet" href="{{ '/css/bootstrap.css' | relative_url }}" />
 
     <!-- Theme style  -->
-    <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}" />
+    <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
     <!-- Hover Icons -->
-    <link rel="stylesheet" href="{{ '/css/hover-icons.css' | relative_url }}" />
+    <link rel="stylesheet" href="{{ '/css/hover-icons.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
     <!-- Syntax Highlighting -->
-    <link rel="stylesheet" href="{{ '/css/syntax.css' | relative_url }}" />
+    <link rel="stylesheet" href="{{ '/css/syntax.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
 
     <!-- Modernizr JS -->
     <script src="{{ '/js/modernizr-2.6.2.min.js' | relative_url }}"></script>
