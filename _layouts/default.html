@@ -19,12 +19,7 @@
     <script>
       (function () {
         try {
-          var saved = localStorage.getItem("darkMode");
-          if (
-            saved === "enabled" ||
-            (saved === null &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches)
-          ) {
+          if (localStorage.getItem("darkMode") === "enabled") {
             document.documentElement.classList.add("dark-mode");
           }
         } catch (e) {}

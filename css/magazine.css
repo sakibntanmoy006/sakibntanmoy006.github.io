@@ -1662,6 +1662,23 @@ ul {
 }
 
 /* Monospace for all "metadata" — the data-engineer's typeface */
+.section-no,
+.section-aside,
+.xp-date,
+.article-date,
+.article-no,
+.meter-label .pct,
+.hero-photo-caption,
+.skill-cell-no,
+.project-no,
+.hero-toc .toc-no,
+.hero-toc-head,
+.stat-label,
+.stamp,
+.colophon .wrap {
+  font-family: var(--mono);
+}
+
 .article-no {
   font-style: normal;
   font-size: 13px;
@@ -1890,7 +1907,7 @@ ul {
   margin-top: clamp(30px, 5vw, 56px);
 }
 
-.colophon + .colophon .wrap {
+.colophon .wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
