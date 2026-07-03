@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(jekyll serve *)",
+      "Bash(tee /tmp/jekyll.log)",
+      "Bash(open *)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --screenshot=/tmp/full_page.png --window-size=1400,3000 \"http://127.0.0.1:4000/\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --screenshot=/tmp/full_page2.png --window-size=1400,10000 --hide-scrollbars \"http://127.0.0.1:4000/\")",
+      "Bash(sips *)",
+      "Bash(convert /tmp/full_page2.png -crop 1400x1000+0+2200 /tmp/crop1.png)",
+      "Bash(convert /tmp/full_page2.png -crop 1400x1000+0+3200 /tmp/crop2.png)",
+      "Bash(node -e \"console.log\\(1\\)\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --screenshot=/tmp/exp_section.png --window-size=1440,1200 --hide-scrollbars \"http://127.0.0.1:4000/#fh5co-resume\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --screenshot=/tmp/exp_section2.png --window-size=1440,1200 --hide-scrollbars --virtual-time-budget=4000 \"http://127.0.0.1:4000/#fh5co-resume\")",
+      "Bash(python3 -c \"import websocket\")",
+      "Bash(python3 -c \"import websockets\")",
+      "Bash(pip3 list *)",
+      "Bash(pkill -f \"remote-debugging-port=9333\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --remote-debugging-port=9333 --hide-scrollbars --window-size=1440,1000 about:blank)",
+      "Bash(curl -s http://127.0.0.1:9333/json/version)",
+      "Bash(python3 *)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --remote-debugging-port=9333 --remote-allow-origins=* --hide-scrollbars --window-size=1440,1000 about:blank)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --remote-debugging-port=9333 \"--remote-allow-origins=*\" --hide-scrollbars --window-size=1440,1000 about:blank)"
+    ]
+  }
+}

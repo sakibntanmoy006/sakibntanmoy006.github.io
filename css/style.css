@@ -490,8 +490,9 @@ a:hover {
 }
 
 .company-logo-small {
-  width: 28px; /* Bigger logo */
-  height: 28px;
+  width: auto; /* Let aspect ratio decide width so wordmark logos aren't squished */
+  height: 44px; /* Square/tall logos fill this; wide wordmarks are limited by max-width instead */
+  max-width: 110px;
   object-fit: contain;
   margin-right: 15px;
   filter: grayscale(100%);
