@@ -310,9 +310,9 @@
     });
   }
 
-  /* Gentle 3D tilt — hero portrait & project cards */
+  /* Gentle 3D tilt — hero portrait */
   if (finePointer && !reducedMotion) {
-    var tiltEls = document.querySelectorAll(".hero-photo-frame, .project-card");
+    var tiltEls = document.querySelectorAll(".hero-photo-frame");
     tiltEls.forEach(function (el) {
       var host = el;
       host.addEventListener("mousemove", function (e) {
