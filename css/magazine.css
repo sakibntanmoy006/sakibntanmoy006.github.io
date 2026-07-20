@@ -2758,7 +2758,7 @@ html.dark-mode .pullquote-section {
 }
 
 /* front face contents */
-/* two stacked marks: line version at rest, color version when centered */
+/* one mark per card: muted at rest, true colors when centered */
 .cfc-logo {
   position: absolute;
   top: 39%;
@@ -2768,20 +2768,13 @@ html.dark-mode .pullquote-section {
   height: 34%;
   object-fit: contain;
   pointer-events: none;
+  filter: grayscale(1) sepia(0.22) saturate(0.55) opacity(0.55);
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.4s ease;
+    filter 0.45s ease;
 }
 
-.cfc-logo.is-color {
-  opacity: 0;
-}
-
-.cf-card.is-center .cfc-logo.is-color {
-  opacity: 1;
-}
-
-.cf-card.is-center .cfc-logo.is-mono {
-  opacity: 0;
+.cf-card.is-center .cfc-logo {
+  filter: none;
 }
 
 .cf-card:hover .cfc-logo {
