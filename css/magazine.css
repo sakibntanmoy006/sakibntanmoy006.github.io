@@ -2521,7 +2521,7 @@ html.dark-mode .pullquote-section {
    ========================================================================== */
 
 #toolset {
-  padding-bottom: clamp(32px, 4vw, 56px);
+  padding-bottom: clamp(16px, 2vw, 28px);
 }
 
 .cf-shell {
@@ -2612,74 +2612,6 @@ html.dark-mode .pullquote-section {
   scroll-snap-type: none;
 }
 
-/* ---------- shelf arrow (single left-side prev only) ---------- */
-.shelf-nav {
-  position: absolute;
-  left: clamp(16px, 5vw, 72px);
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 4;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-.shelf-row-wrap.is-scrolling .shelf-nav {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* minimal long-tail arrow: no ring, just the stroke.
-   Points left, the direction the cards travel; loops the deck. */
-.shelf-arrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  padding: 18px 14px; /* generous hit area around a bare glyph */
-  color: #8b8278;
-  cursor: pointer;
-  transition: color 0.3s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.35s ease;
-}
-
-.shelf-arrow svg {
-  width: 64px;
-  height: 28px;
-  display: block;
-  overflow: visible;
-}
-
-/* the tail draws longer on hover, the head leads */
-.shelf-arrow .arrow-tail {
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  transform-origin: right center;
-}
-
-.shelf-arrow:hover {
-  color: var(--accent);
-  transform: translateX(-8px);
-}
-
-.shelf-arrow:hover .arrow-tail {
-  transform: scaleX(1.14);
-}
-
-.shelf-arrow:active {
-  transform: translateX(-14px);
-  transition-duration: 0.12s;
-}
-
-.shelf-arrow:focus-visible {
-  outline: 1.5px solid var(--accent);
-  outline-offset: 4px;
-}
-
-@media (max-width: 700px) {
-  .shelf-nav {
-    display: none; /* touch scroll covers it on small screens */
-  }
-}
 
 
 
@@ -2860,21 +2792,6 @@ html.dark-mode .pullquote-section {
 }
 
 /* ---------- legend ---------- */
-.toolset-legend {
-  margin-top: clamp(18px, 2.4vw, 28px);
-  text-align: center;
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-}
-
-.toolset-legend b {
-  color: var(--accent);
-  font-weight: 400;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .cf-inner,
   .cf-card {

@@ -64,7 +64,6 @@
     if (!row) return;
 
     var cards = Array.prototype.slice.call(row.querySelectorAll(".cf-card"));
-    var arrowBtn = wrap.querySelector(".shelf-arrow");
 
     /* index of the card currently nearest the center */
     var centeredIndex = function () {
@@ -87,25 +86,10 @@
       wrap.classList.toggle("can-right", max > 6 && row.scrollLeft < max - 6);
     };
 
-    /* ---------- single arrow: advance one card, loop to the start ---------- */
-    if (arrowBtn) {
-      arrowBtn.addEventListener("click", function () {
-        var idx = centeredIndex();
-        centerCard(row, cards[(idx + 1) % cards.length]);
-      });
-    }
 
     /* ---------- scroll → flow (rAF-throttled) + hide arrow while scrolling ---------- */
     var ticking = false;
-    var scrollTimer = null;
     var onScroll = function () {
-      /* mark scrolling immediately */
-      wrap.classList.add("is-scrolling");
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(function () {
-        wrap.classList.remove("is-scrolling");
-      }, 400);
-
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(function () {
