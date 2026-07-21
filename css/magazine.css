@@ -2133,6 +2133,13 @@ html {
   scroll-padding-top: 96px;
 }
 
+/* deep links land clear of the sticky masthead */
+.section[id],
+.hero[id],
+.footer[id] {
+  scroll-margin-top: 96px;
+}
+
 /* Faint data-grid backdrop across the hero */
 .hero {
   background-image: radial-gradient(var(--dot) 1px, transparent 1.2px);

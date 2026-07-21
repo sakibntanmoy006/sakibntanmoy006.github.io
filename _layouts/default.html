@@ -11,7 +11,7 @@
     />
     <meta
       name="keywords"
-      content="Sakib Nawar Tanmoy, Portfolio, Data Analyst, Data Scientist, Software Engineer"
+      content="Sakib Nawar Tanmoy, IT Compliance, ISMS, ISO 27001, ISO 42001, Data Analyst, Business Intelligence, Software Engineer, Dhaka"
     />
     <meta name="author" content="Sakib Nawar Tanmoy" />
 
@@ -54,6 +54,15 @@
       rel="stylesheet"
       href="{{ '/css/syntax.css' | relative_url }}?v={{ site.time | date: '%s' }}"
     />
+    <!-- Reveal animations are JS-driven; keep content visible without JS -->
+    <noscript>
+      <style>
+        .reveal { opacity: 1 !important; transform: none !important; }
+        .section-head::before { transform: scaleX(1) !important; }
+        .meter-fill { width: var(--w) !important; }
+      </style>
+    </noscript>
+
     {% seo %}
   </head>
   <body>
@@ -91,7 +100,7 @@
               >
             </button>
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=sakib.tanmoy@gmail.com"
+              href="mailto:sakib.tanmoy@gmail.com"
               class="nav-email-btn"
               target="_blank"
               rel="noopener"
@@ -116,9 +125,7 @@
           >Resume</a
         >
         <a
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=sakib.tanmoy@gmail.com"
-          target="_blank"
-          rel="noopener"
+          href="mailto:sakib.tanmoy@gmail.com"
           >Email Me</a
         >
       </nav>
@@ -166,10 +173,8 @@
         </div>
         <div class="footer-links">
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=sakib.tanmoy@gmail.com"
+            href="mailto:sakib.tanmoy@gmail.com"
             class="footer-link-row is-primary"
-            target="_blank"
-            rel="noopener"
           >
             <span class="flr-label"
               >{% include icons/gmail.html size=20 %} Email Me</span

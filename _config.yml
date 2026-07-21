@@ -1,6 +1,15 @@
 title: Sakib Nawar Tanmoy | Data & Code
-description: Sakib Nawar Tanmoy Portfolio - Data Analyst, Data Scientist, Software Engineer
+description: "IT compliance and ISMS specialist, data scientist and software engineer in Dhaka. I build auditable data systems for regulated organisations: ISO 27001, ISO 42001, GRI reporting, BI pipelines."
 url: "https://sakibntanmoy006.github.io"
+author: Sakib Nawar Tanmoy
+image: /images/og-cover.png
+twitter:
+  card: summary_large_image
+social:
+  name: Sakib Nawar Tanmoy
+  links:
+    - https://www.linkedin.com/in/snt006
+    - https://github.com/sakibntanmoy006
 markdown: kramdown
 highlighter: rouge
 plugins:
