@@ -154,22 +154,23 @@
       }, 0);
     });
 
-    /* ---------- init: open on the middle card so the shelf reads full ---------- */
-    var openAtMiddle = function () {
+    /* ---------- init: open on the shelf's marked card, else the middle ---------- */
+    var openAtDefault = function () {
       if (!cards.length) return;
-      centerCard(row, cards[Math.floor((cards.length - 1) / 2)], true);
+      var pick = row.querySelector(".cf-card[data-default]");
+      centerCard(row, pick || cards[Math.floor((cards.length - 1) / 2)], true);
       applyFlow(row);
       updateFades();
     };
 
-    openAtMiddle();
-    row._openAtMiddle = openAtMiddle;
+    openAtDefault();
+    row._openAtDefault = openAtDefault;
   });
 
   /* re-run once fonts/layout settle, so the centering lands accurately */
   window.addEventListener("load", function () {
     shell.querySelectorAll(".shelf-row").forEach(function (row) {
-      if (row._openAtMiddle) row._openAtMiddle();
+      if (row._openAtDefault) row._openAtDefault();
     });
   });
 })();
