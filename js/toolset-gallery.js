@@ -51,11 +51,11 @@
     });
   };
 
-  var centerCard = function (row, card) {
+  var centerCard = function (row, card, instant) {
     row.scrollTo({
       left:
         card.offsetLeft - (row.clientWidth - card.offsetWidth) / 2,
-      behavior: reduced ? "auto" : "smooth",
+      behavior: instant || reduced ? "auto" : "smooth",
     });
   };
 
@@ -154,13 +154,22 @@
       }, 0);
     });
 
-    /* ---------- init ---------- */
-    applyFlow(row);
-    updateFades();
+    /* ---------- init: open on the middle card so the shelf reads full ---------- */
+    var openAtMiddle = function () {
+      if (!cards.length) return;
+      centerCard(row, cards[Math.floor((cards.length - 1) / 2)], true);
+      applyFlow(row);
+      updateFades();
+    };
+
+    openAtMiddle();
+    row._openAtMiddle = openAtMiddle;
   });
 
-  /* re-run once fonts/layout settle */
+  /* re-run once fonts/layout settle, so the centering lands accurately */
   window.addEventListener("load", function () {
-    shell.querySelectorAll(".shelf-row").forEach(applyFlow);
+    shell.querySelectorAll(".shelf-row").forEach(function (row) {
+      if (row._openAtMiddle) row._openAtMiddle();
+    });
   });
 })();
